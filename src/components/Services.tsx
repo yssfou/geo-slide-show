@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import geoService1 from "@/assets/geo-service-1.png";
 import geoService2 from "@/assets/geo-service-2.png";
 import geoService3 from "@/assets/geo-service-3.png";
@@ -41,28 +42,39 @@ const Services = () => {
   const slideshowImages = [service1, service2, service3, service4, service5];
 
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="text-primary text-sm font-semibold uppercase tracking-wider">
             Ce Que Nous Faisons
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">
-            Nos Services
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2">
+            Nos <span className="text-gradient">Services</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Découvrez notre gamme complète de services géotechniques et
             environnementaux, adaptés à vos besoins spécifiques.
           </p>
-        </div>
+        </motion.div>
 
         {/* Service Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary hover:scale-105 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300"
             >
               <div className="aspect-video overflow-hidden">
                 <img
@@ -72,54 +84,88 @@ const Services = () => {
                 />
               </div>
               <div className="p-6">
-                <span className="text-primary text-xs font-medium uppercase tracking-wider">
+                <span className="text-primary text-xs font-semibold uppercase tracking-wider">
                   {service.category}
                 </span>
-                <h3 className="text-xl font-bold text-foreground mt-2 mb-3">
+                <h3 className="text-xl font-bold text-foreground mt-2 mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground text-sm">
                   {service.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Slideshow - Right to Left (top row) */}
-        <div className="slideshow-container mb-8">
-          <div className="flex animate-slideshow-rtl" style={{ width: "fit-content" }}>
-            {[...slideshowImages, ...slideshowImages].map((image, index) => (
-              <div
+        <div className="relative mb-8">
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          
+          <motion.div
+            className="flex gap-4"
+            animate={{ x: [0, -1440] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 50,
+                ease: "linear",
+              },
+            }}
+            style={{ width: "fit-content" }}
+          >
+            {[...slideshowImages, ...slideshowImages, ...slideshowImages].map((image, index) => (
+              <motion.div
                 key={index}
-                className="flex-shrink-0 w-80 h-56 mx-3 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300"
+                className="flex-shrink-0 w-80 h-56 rounded-2xl overflow-hidden cursor-pointer"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <img
                   src={image}
                   alt={`Service ${(index % 5) + 1}`}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Project Scroll - Left to Right (bottom row) */}
-        <div className="slideshow-container">
-          <div className="flex animate-slideshow-ltr" style={{ width: "fit-content" }}>
-            {[...projects, ...projects].map((project, index) => (
-              <div
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          
+          <motion.div
+            className="flex gap-4"
+            animate={{ x: [-1200, 0] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 50,
+                ease: "linear",
+              },
+            }}
+            style={{ width: "fit-content" }}
+          >
+            {[...projects, ...projects, ...projects].map((project, index) => (
+              <motion.div
                 key={index}
-                className="flex-shrink-0 w-72 h-48 mx-3 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300"
+                className="flex-shrink-0 w-72 h-48 rounded-2xl overflow-hidden cursor-pointer"
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <img
                   src={project}
                   alt={`Projet ${(index % 5) + 1}`}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
