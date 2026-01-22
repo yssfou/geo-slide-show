@@ -4,22 +4,22 @@
 
 @layer base {
   :root {
-    --background: 20 14.3% 4.1%;
+    --background: 220 20% 10%;
     --foreground: 0 0% 95%;
 
-    --card: 24 9.8% 10%;
+    --card: 220 18% 13%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 20 14.3% 4.1%;
+    --popover: 220 20% 10%;
     --popover-foreground: 0 0% 95%;
 
     --primary: 24 76% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 20 14.3% 14.1%;
+    --secondary: 220 18% 16%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 20 14.3% 14.1%;
+    --muted: 220 18% 16%;
     --muted-foreground: 0 0% 64%;
 
     --accent: 24 76% 50%;
@@ -28,8 +28,8 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 20 14.3% 14.1%;
-    --input: 20 14.3% 14.1%;
+    --border: 220 18% 18%;
+    --input: 220 18% 16%;
     --ring: 24 76% 50%;
 
     --radius: 0.5rem;
@@ -69,11 +69,11 @@
   }
 
   .animate-scroll {
-    animation: scroll 30s linear infinite;
+    animation: scroll 40s linear infinite;
   }
 
   .animate-scroll-clients {
-    animation: scroll 25s linear infinite;
+    animation: scroll 35s linear infinite;
   }
 
   @keyframes scroll {
@@ -120,7 +120,8 @@
     position: relative;
   }
 
-  @keyframes slideshow {
+  /* Right to left slideshow */
+  @keyframes slideshow-rtl {
     0% {
       transform: translateX(0);
     }
@@ -129,7 +130,21 @@
     }
   }
 
-  .animate-slideshow {
-    animation: slideshow 20s linear infinite;
+  .animate-slideshow-rtl {
+    animation: slideshow-rtl 45s linear infinite;
+  }
+
+  /* Left to right slideshow */
+  @keyframes slideshow-ltr {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slideshow-ltr {
+    animation: slideshow-ltr 45s linear infinite;
   }
 }
