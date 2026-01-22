@@ -62,13 +62,13 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-card rounded-xl overflow-hidden hover:ring-2 hover:ring-primary transition-all duration-300"
+              className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary hover:scale-105 transition-all duration-300"
             >
               <div className="aspect-video overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
@@ -86,13 +86,13 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Slideshow - Left to Right */}
+        {/* Slideshow - Right to Left (top row) */}
         <div className="slideshow-container mb-8">
-          <div className="flex animate-slideshow" style={{ width: "fit-content" }}>
+          <div className="flex animate-slideshow-rtl" style={{ width: "fit-content" }}>
             {[...slideshowImages, ...slideshowImages].map((image, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-80 h-56 mx-3 rounded-xl overflow-hidden"
+                className="flex-shrink-0 w-80 h-56 mx-3 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300"
               >
                 <img
                   src={image}
@@ -104,18 +104,18 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Project Scroll */}
-        <div className="overflow-hidden">
-          <div className="flex animate-scroll" style={{ width: "fit-content" }}>
+        {/* Project Scroll - Left to Right (bottom row) */}
+        <div className="slideshow-container">
+          <div className="flex animate-slideshow-ltr" style={{ width: "fit-content" }}>
             {[...projects, ...projects].map((project, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-72 h-48 mx-3 rounded-xl overflow-hidden"
+                className="flex-shrink-0 w-72 h-48 mx-3 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300"
               >
                 <img
                   src={project}
                   alt={`Projet ${(index % 5) + 1}`}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
