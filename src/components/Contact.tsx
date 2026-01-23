@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 
+const EMAIL_LINK =
+  "mailto:egg.brahim@gmail.com?subject=Demande%20d'information%20-%20EGG&body=Bonjour%20EGG%2C%0A%0AJe%20souhaite%20obtenir%20des%20informations%20concernant%20vos%20services.%0A%0ACordialement,";
+
 const Contact = () => {
   const contactCards = [
     {
@@ -15,7 +18,7 @@ const Contact = () => {
       icon: Mail,
       title: "Email",
       items: [{ label: "", value: "egg.brahim@gmail.com" }],
-      href: "mailto:egg.brahim@gmail.com",
+      href: EMAIL_LINK,
     },
     {
       icon: MapPin,
@@ -89,26 +92,6 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Map Embed */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/5 mb-12"
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.5!2d10.1833!3d36.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34c8e7a5b8e7%3A0x5c6e7e8f9a0b1c2d!2sCit%C3%A9%20La%20Gazelle%2C%20Ariana%202083%2C%20Tunisia!5e0!3m2!1sen!2stn!4v1704067200000!5m2!1sen!2stn"
-            width="100%"
-            height="400"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="EGG Location"
-          ></iframe>
-        </motion.div>
-
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -133,8 +116,9 @@ const Contact = () => {
               <Phone className="w-5 h-5" />
               Appelez-nous
             </motion.a>
+
             <motion.a
-              href="mailto:egg.brahim@gmail.com"
+              href={EMAIL_LINK}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground font-semibold rounded-full hover:bg-primary-foreground/10 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -150,3 +134,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
