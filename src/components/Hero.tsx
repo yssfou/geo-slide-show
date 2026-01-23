@@ -101,40 +101,15 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-6 text-sm text-muted-foreground/60"
         >
-          Experts en Géotechnique depuis 2011 • Plus de 700 projets réalisés
+          Experts en Géotechnique depuis 2011 • Plus de 1000 projets réalisés
         </motion.p>
-
-        {/* Social Proof */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-10 flex items-center gap-4"
-        >
-          <div className="flex -space-x-3">
-            {socialProofAvatars.map((avatar, index) => (
-              <motion.img
-                key={index}
-                src={avatar}
-                alt={`Client ${index + 1}`}
-                className="w-10 h-10 rounded-full border-2 border-background object-cover"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1 + index * 0.1 }}
-              />
-            ))}
-          </div>
-          <p className="text-sm text-muted-foreground">
-            <span className="text-foreground font-semibold">100+</span> clients satisfaits
-          </p>
-        </motion.div>
       </div>
 
       {/* Program Cards Carousel */}
       <div className="relative z-10 pb-8">
-        {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        {/* Gradient Overlays - Fixed to viewport edges */}
+        <div className="fixed left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
+        <div className="fixed right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
 
         {/* Scrolling Container */}
         <motion.div
