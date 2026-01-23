@@ -38,11 +38,21 @@ const Services = () => {
     },
   ];
 
-  const projects = [project1, project2, project3, project4, project5];
-  const slideshowImages = [service1, service2, service3, service4, service5];
+  const allImages = [
+    { src: service1, title: "Sondages Géotechniques", category: "Géotechnique" },
+    { src: project1, title: "Projet Infrastructure", category: "Projets" },
+    { src: service2, title: "Études Environnementales", category: "Environnement" },
+    { src: project2, title: "Fondations Profondes", category: "Projets" },
+    { src: service3, title: "Travaux Spéciaux", category: "Construction" },
+    { src: project3, title: "Forages d'Eau", category: "Projets" },
+    { src: service4, title: "Expertise Technique", category: "Conseil" },
+    { src: project4, title: "Étude Géologique", category: "Projets" },
+    { src: service5, title: "Consolidation Sols", category: "Géotechnique" },
+    { src: project5, title: "Aménagement Terrain", category: "Projets" },
+  ];
 
   return (
-    <section id="services" className="py-20 bg-background overflow-hidden">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -97,76 +107,54 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
+      </div>
 
-        {/* Slideshow - Right to Left (top row) */}
-        <div className="relative mb-8">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          
-          <motion.div
-            className="flex gap-4"
-            animate={{ x: [0, -1440] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 50,
-                ease: "linear",
-              },
-            }}
-            style={{ width: "fit-content" }}
-          >
-            {[...slideshowImages, ...slideshowImages, ...slideshowImages].map((image, index) => (
-              <motion.div
-                key={index}
-                className="flex-shrink-0 w-80 h-56 rounded-2xl overflow-hidden cursor-pointer"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <img
-                  src={image}
-                  alt={`Service ${(index % 5) + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+      {/* Single Infinite Slideshow - Full Width */}
+      <div className="relative overflow-hidden">
+        {/* Fixed Viewport Edge Gradients */}
+        <div className="fixed left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-background to-transparent z-30 pointer-events-none" />
+        <div className="fixed right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-background to-transparent z-30 pointer-events-none" />
 
-        {/* Project Scroll - Left to Right (bottom row) */}
-        <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          
-          <motion.div
-            className="flex gap-4"
-            animate={{ x: [-1200, 0] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 50,
-                ease: "linear",
-              },
-            }}
-            style={{ width: "fit-content" }}
-          >
-            {[...projects, ...projects, ...projects].map((project, index) => (
-              <motion.div
-                key={index}
-                className="flex-shrink-0 w-72 h-48 rounded-2xl overflow-hidden cursor-pointer"
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <img
-                  src={project}
-                  alt={`Projet ${(index % 5) + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        <motion.div
+          className="flex gap-4"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 60,
+              ease: "linear",
+            },
+          }}
+          style={{ width: "fit-content" }}
+        >
+          {/* Duplicate for seamless infinite loop */}
+          {[...allImages, ...allImages].map((item, index) => (
+            <motion.div
+              key={index}
+              className="relative flex-shrink-0 w-72 md:w-80 h-48 md:h-56 rounded-2xl overflow-hidden cursor-pointer group"
+              whileHover={{ scale: 1.03, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                src={item.src}
+                alt={item.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
+              {/* Text */}
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span className="text-primary text-xs font-semibold uppercase tracking-wider">
+                  {item.category}
+                </span>
+                <h3 className="text-foreground font-bold text-lg mt-1 group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
