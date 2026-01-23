@@ -1,5 +1,6 @@
+
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
@@ -21,15 +22,22 @@ const Footer = () => {
       icon: Phone,
       content: (
         <div className="flex flex-col gap-1">
-          <a href="tel:+21697446899" className="hover:text-primary transition-colors">+216 97 446 899</a>
-          <a href="tel:+21671762924" className="hover:text-primary transition-colors">+216 71 762 924</a>
+          <a href="tel:+21697446899" className="hover:text-primary transition-colors">
+            +216 97 446 899
+          </a>
+          <a href="tel:+21671762924" className="hover:text-primary transition-colors">
+            +216 71 762 924
+          </a>
         </div>
       ),
     },
     {
       icon: Mail,
       content: (
-        <a href="mailto:egg.brahim@gmail.com" className="hover:text-primary transition-colors">
+        <a
+          href="mailto:egg.brahim@gmail.com"
+          className="hover:text-primary transition-colors"
+        >
           egg.brahim@gmail.com
         </a>
       ),
@@ -43,7 +51,8 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="hover:text-primary transition-colors"
         >
-          Local 1, Impasse Amine Rayhani<br />Cité La Gazelle, Ariana 2083
+          Local 1, Impasse Amine Rayhani<br />
+          Cité La Gazelle, Ariana 2083
         </a>
       ),
     },
@@ -62,26 +71,33 @@ const Footer = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-terracotta-gradient rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-                <span className="text-primary-foreground font-bold text-lg">E</span>
+                <span className="text-primary-foreground font-bold text-lg">
+                  E
+                </span>
               </div>
-              <span className="text-foreground font-bold text-xl tracking-tight">EGG</span>
+              <span className="text-foreground font-bold text-xl tracking-tight">
+                EGG
+              </span>
             </div>
+
             <p className="text-muted-foreground text-sm mb-4">
               Entreprises Géologiques & Géotechniques - Votre partenaire de
               confiance en études de sol et travaux spéciaux depuis 2011.
             </p>
+
+            {/* Social Link */}
             <div className="flex gap-3">
-              {[Facebook, Linkedin, Instagram].map((Icon, index) => (
-                <motion.a
-                  key={index}
-                  href="#"
-                  className="w-10 h-10 bg-secondary rounded-xl flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Icon className="w-5 h-5" />
-                </motion.a>
-              ))}
+              <motion.a
+                href="https://www.facebook.com/profile.php?id=100063118427088&mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="EGG Facebook"
+                className="w-10 h-10 bg-secondary rounded-xl flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                whileHover={{ scale: 1.1, y: -3 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Facebook className="w-5 h-5" />
+              </motion.a>
             </div>
           </motion.div>
 
@@ -92,7 +108,9 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-foreground font-semibold mb-4">Liens Rapides</h3>
+            <h3 className="text-foreground font-semibold mb-4">
+              Liens Rapides
+            </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -115,11 +133,15 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-foreground font-semibold mb-4">Nos Services</h3>
+            <h3 className="text-foreground font-semibold mb-4">
+              Nos Services
+            </h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service}>
-                  <span className="text-muted-foreground text-sm">{service}</span>
+                  <span className="text-muted-foreground text-sm">
+                    {service}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -132,10 +154,15 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h3 className="text-foreground font-semibold mb-4">Contact</h3>
+            <h3 className="text-foreground font-semibold mb-4">
+              Contact
+            </h3>
             <ul className="space-y-3">
               {contactInfo.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                <li
+                  key={index}
+                  className="flex items-start gap-2 text-muted-foreground text-sm"
+                >
                   <item.icon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                   {item.content}
                 </li>
