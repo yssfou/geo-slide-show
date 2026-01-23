@@ -13,8 +13,40 @@ const Footer = () => {
     "Sondages Géotechniques",
     "Études Environnementales",
     "Travaux Spéciaux",
-    "Forages d'eau",
     "Essais in-situ",
+  ];
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      content: (
+        <div className="flex flex-col gap-1">
+          <a href="tel:+21697446899" className="hover:text-primary transition-colors">+216 97 446 899</a>
+          <a href="tel:+21671762924" className="hover:text-primary transition-colors">+216 71 762 924</a>
+        </div>
+      ),
+    },
+    {
+      icon: Mail,
+      content: (
+        <a href="mailto:egg.brahim@gmail.com" className="hover:text-primary transition-colors">
+          egg.brahim@gmail.com
+        </a>
+      ),
+    },
+    {
+      icon: MapPin,
+      content: (
+        <a
+          href="https://maps.app.goo.gl/WvuFPMkWnt9SnV4s8"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors"
+        >
+          Local 1, Impasse Amine Rayhani<br />Cité La Gazelle, Ariana 2083
+        </a>
+      ),
+    },
   ];
 
   return (
@@ -102,21 +134,12 @@ const Footer = () => {
           >
             <h3 className="text-foreground font-semibold mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-muted-foreground text-sm">
-                <Phone className="w-4 h-4 text-primary mt-0.5" />
-                <div>
-                  <p>+216 97 446 899</p>
-                  <p>+216 71 762 924</p>
-                </div>
-              </li>
-              <li className="flex items-center gap-2 text-muted-foreground text-sm">
-                <Mail className="w-4 h-4 text-primary" />
-                <span>egg.brahim@gmail.com</span>
-              </li>
-              <li className="flex items-start gap-2 text-muted-foreground text-sm">
-                <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                <span>Local 1, Impasse Amine Rayhani<br />Cité La Gazelle, Ariana 2083</span>
-              </li>
+              {contactInfo.map((item, index) => (
+                <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                  <item.icon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                  {item.content}
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>
