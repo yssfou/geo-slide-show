@@ -2,16 +2,12 @@ import { motion } from "framer-motion";
 import geoService1 from "@/assets/geo-service-1.png";
 import geoService2 from "@/assets/geo-service-2.png";
 import geoService3 from "@/assets/geo-service-3.png";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-import project4 from "@/assets/project-4.jpg";
-import project5 from "@/assets/project-5.jpg";
-import service1 from "@/assets/service-1.jpg";
-import service2 from "@/assets/service-2.jpg";
-import service3 from "@/assets/service-3.jpg";
-import service4 from "@/assets/service-4.jpg";
-import service5 from "@/assets/service-5.jpg";
+import newService1 from "@/assets/new-service-1.jpg";
+import newService2 from "@/assets/new-service-2.jpg";
+import newService3 from "@/assets/new-service-3.jpg";
+import newService4 from "@/assets/new-service-4.jpg";
+import newService5 from "@/assets/new-service-5.jpg";
+import newService6 from "@/assets/new-service-6.jpg";
 
 const Services = () => {
   const services = [
@@ -39,16 +35,12 @@ const Services = () => {
   ];
 
   const allImages = [
-    { src: service1, title: "Sondages Géotechniques", category: "Géotechnique" },
-    { src: project1, title: "Projet Infrastructure", category: "Projets" },
-    { src: service2, title: "Études Environnementales", category: "Environnement" },
-    { src: project2, title: "Fondations Profondes", category: "Projets" },
-    { src: service3, title: "Travaux Spéciaux", category: "Construction" },
-    { src: project3, title: "Forages d'Eau", category: "Projets" },
-    { src: service4, title: "Expertise Technique", category: "Conseil" },
-    { src: project4, title: "Étude Géologique", category: "Projets" },
-    { src: service5, title: "Consolidation Sols", category: "Géotechnique" },
-    { src: project5, title: "Aménagement Terrain", category: "Projets" },
+    { src: newService1, title: "Sondages Géotechniques", category: "Géotechnique" },
+    { src: newService2, title: "Études Environnementales", category: "Environnement" },
+    { src: newService3, title: "Travaux Spéciaux", category: "Construction" },
+    { src: newService4, title: "Expertise Technique", category: "Conseil" },
+    { src: newService5, title: "Consolidation Sols", category: "Géotechnique" },
+    { src: newService6, title: "Aménagement Terrain", category: "Projets" },
   ];
 
   return (

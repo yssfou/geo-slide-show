@@ -95,7 +95,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/5"
+          className="rounded-2xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/5 mb-12"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.5!2d10.1833!3d36.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34c8e7a5b8e7%3A0x5c6e7e8f9a0b1c2d!2sCit%C3%A9%20La%20Gazelle%2C%20Ariana%202083%2C%20Tunisia!5e0!3m2!1sen!2stn!4v1704067200000!5m2!1sen!2stn"
@@ -107,6 +107,42 @@ const Contact = () => {
             referrerPolicy="no-referrer-when-downgrade"
             title="EGG Location"
           ></iframe>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-primary rounded-3xl p-8 md:p-12 text-center"
+        >
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground mb-4">
+            Besoin d'une Étude Géotechnique?
+          </h3>
+          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
+            Contactez-nous dès aujourd'hui pour discuter de votre projet et obtenir un devis personnalisé.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.a
+              href="tel:+21697446899"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-background text-foreground font-semibold rounded-full hover:bg-background/90 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Phone className="w-5 h-5" />
+              Appelez-nous
+            </motion.a>
+            <motion.a
+              href="mailto:egg.brahim@gmail.com"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-primary-foreground text-primary-foreground font-semibold rounded-full hover:bg-primary-foreground/10 transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Mail className="w-5 h-5" />
+              Envoyez un Email
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </section>
